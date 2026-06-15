@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio Dentístico — Mentoria | Dr. Benjamin Amaral</title>
-  <meta name="description" content="Mentoria para dentistas que querem construir uma clínica de alto padrão com nome, método e identidade própria.">
+  <title>Grupo Studio Dentístico — Mentoria | Dr. Benjamin Amaral</title>
+  <meta name="description" content="O início do movimento Grupo Studio Dentístico — mentoria para dentistas que querem construir uma clínica de alto padrão com nome, método e identidade própria.">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -290,25 +293,9 @@
       align-items: center;
     }
 
-    .hero-watermark {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 700;
-      font-size: clamp(180px, 28vw, 380px);
-      color: var(--surface);
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-      letter-spacing: -0.04em;
-    }
-
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       padding: 80px 0 100px;
     }
 
@@ -317,9 +304,26 @@
       z-index: 1;
       align-self: end;
       padding-bottom: 40px;
+      overflow: visible;
     }
 
-    .hero-photo img {
+    .hero-watermark {
+      position: absolute;
+      left: -48%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(260px, 44vw, 500px);
+      height: auto;
+      opacity: 0.1;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .hero-portrait {
+      position: relative;
+      z-index: 1;
       width: 100%;
       max-width: 420px;
       margin-left: auto;
@@ -844,18 +848,17 @@
         align-self: auto;
       }
 
-      .hero-photo img {
+      .hero-watermark {
+        display: none;
+      }
+
+      .hero-portrait {
         margin: 0 auto;
       }
 
       .hero-photo::before {
         right: auto;
         left: -12px;
-      }
-
-      .hero-watermark {
-        font-size: 140px;
-        opacity: 0.5;
       }
 
       .cta-final-grid {
@@ -935,9 +938,9 @@
   <!-- Nav -->
   <header class="nav" id="nav">
     <div class="container">
-      <a href="#" class="logo" aria-label="Studio Dentístico — início">
+      <a href="#" class="logo" aria-label="Grupo Studio Dentístico — início">
         <img src="assets/images/logo-studio.png" alt="Benjamin Amaral" class="logo-img" width="200" height="42">
-        <span class="logo-brand">Studio Dentístico</span>
+        <span class="logo-brand">Grupo Studio Dentístico</span>
       </a>
 
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
@@ -970,10 +973,9 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <div class="hero-watermark" aria-hidden="true">BA</div>
     <div class="container">
       <div class="hero-content reveal">
-        <p class="hero-eyebrow">Mentoria Studio Dentístico</p>
+        <p class="hero-eyebrow">O início do movimento Grupo Studio Dentístico</p>
         <h1>A trajetória que levei anos construindo — agora vira o seu ponto de partida.</h1>
         <div class="hero-divider"></div>
         <p class="hero-subtitle">Uma mentoria para dentistas que querem construir uma clínica de alto padrão com nome, método e identidade própria.</p>
@@ -984,7 +986,8 @@
         </a>
       </div>
       <div class="hero-photo reveal">
-        <img src="assets/images/foto-benjamin.jpg" alt="Dr. Benjamin Amaral — retrato profissional" width="420" height="560">
+        <img src="assets/images/marca.jpg" alt="" class="hero-watermark" aria-hidden="true" width="500" height="500">
+        <img src="assets/images/foto-benjamin.jpg" class="hero-portrait" alt="Dr. Benjamin Amaral — retrato profissional" width="420" height="560">
       </div>
     </div>
   </section>
@@ -994,12 +997,12 @@
     <div class="container">
       <div class="reveal">
         <p class="section-label">A mentoria</p>
-        <h2 class="section-title">O que é o Studio Dentístico</h2>
+        <h2 class="section-title">O que é o Grupo Studio Dentístico</h2>
       </div>
       <div class="sobre-grid">
         <div class="sobre-text reveal">
-          <p>O Studio Dentístico não é apenas um curso. É um método de construção de clínica — da identidade visual ao protocolo clínico, do posicionamento ao tipo de paciente que você vai atender.</p>
-          <p>Ao concluir, você terá autorização para usar o nome Studio Dentístico na sua clínica: <em>"Dra. Joana Lima | Studio Dentístico"</em>. Um selo que posiciona você dentro de um movimento nacional de excelência odontológica.</p>
+          <p>O Grupo Studio Dentístico não é apenas um curso. É o início de um movimento — um método de construção de clínica, da identidade visual ao protocolo clínico, do posicionamento ao tipo de paciente que você vai atender.</p>
+          <p>Ao concluir, você terá autorização para usar o nome na sua clínica: <em>"Dra. Joana Lima | Grupo Studio Dentístico"</em>. Um selo que posiciona você dentro de um movimento nacional de excelência odontológica.</p>
         </div>
         <div class="sobre-highlight reveal">
           <p>"Um dentista com clínica própria, identidade própria e pacientes certos."</p>
@@ -1064,7 +1067,7 @@
           <p>Os erros que custam anos — e como evitá-los</p>
         </div>
         <div class="pilar-card reveal">
-          <h3>Selo Studio Dentístico</h3>
+          <h3>Selo Grupo Studio Dentístico</h3>
           <p>Certificação que posiciona sua clínica dentro de uma rede de excelência nacional</p>
         </div>
       </div>
@@ -1107,25 +1110,25 @@
         <div class="depoimento-card reveal">
           <p class="depoimento-text">A mentoria mudou completamente minha visão sobre como posicionar a clínica. Hoje atendo um perfil de paciente que antes parecia inalcançável.</p>
           <div class="depoimento-author">
-            <p class="depoimento-name">Dra. [Nome Placeholder]</p>
+            <p class="depoimento-name">Dra. Joana Lima</p>
             <p class="depoimento-meta">São Paulo, SP — Implantodontia</p>
-            <p class="depoimento-brand">| Studio Dentístico</p>
+            <p class="depoimento-brand">| Grupo Studio Dentístico</p>
           </div>
         </div>
         <div class="depoimento-card reveal">
           <p class="depoimento-text">Não é teoria de palco. É método aplicado, com alguém que já construiu o que eu queria construir. O retorno foi imediato na forma como precifico e comunico.</p>
           <div class="depoimento-author">
-            <p class="depoimento-name">Dr. [Nome Placeholder]</p>
+            <p class="depoimento-name">Dr. Rafael Mendes</p>
             <p class="depoimento-meta">Curitiba, PR — Reabilitação Oral</p>
-            <p class="depoimento-brand">| Studio Dentístico</p>
+            <p class="depoimento-brand">| Grupo Studio Dentístico</p>
           </div>
         </div>
         <div class="depoimento-card reveal">
-          <p class="depoimento-text">O selo Studio Dentístico trouxe uma credibilidade que nenhuma propaganda pagaria. Meus pacientes percebem a diferença antes mesmo de entrar no consultório.</p>
+          <p class="depoimento-text">O selo Grupo Studio Dentístico trouxe uma credibilidade que nenhuma propaganda pagaria. Meus pacientes percebem a diferença antes mesmo de entrar no consultório.</p>
           <div class="depoimento-author">
-            <p class="depoimento-name">Dra. [Nome Placeholder]</p>
+            <p class="depoimento-name">Dra. Carolina Vieira</p>
             <p class="depoimento-meta">Belo Horizonte, MG — Estética Avançada</p>
-            <p class="depoimento-brand">| Studio Dentístico</p>
+            <p class="depoimento-brand">| Grupo Studio Dentístico</p>
           </div>
         </div>
       </div>
@@ -1140,7 +1143,7 @@
           <img src="assets/images/procedimento.jpg" alt="Dr. Benjamin Amaral em procedimento clínico" width="280" height="373">
         </div>
         <div class="cta-final-content">
-          <h2>Pronto para construir o seu Studio Dentístico?</h2>
+          <h2>Pronto para fazer parte do Grupo Studio Dentístico?</h2>
           <p>Turmas com vagas limitadas. Converse com a nossa equipe e descubra se este é o momento certo para você.</p>
           <a href="https://wa.me/5512992186532" class="btn-whatsapp btn-whatsapp--dark" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1155,16 +1158,16 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <a href="#" class="logo" aria-label="Studio Dentístico — início">
+      <a href="#" class="logo" aria-label="Grupo Studio Dentístico — início">
         <img src="assets/images/logo-studio.png" alt="Benjamin Amaral" class="logo-img" width="200" height="42">
-        <span class="logo-brand">Studio Dentístico</span>
+        <span class="logo-brand">Grupo Studio Dentístico</span>
       </a>
       <ul class="footer-links">
         <li><a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener noreferrer">Instagram</a></li>
         <li><a href="https://wa.me/5512992186532" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
         <li><a href="https://benjaminamaral.com.br" target="_blank" rel="noopener noreferrer">benjaminamaral.com.br</a></li>
       </ul>
-      <p class="footer-copy">&copy; 2026 Benjamin Amaral &middot; Studio Dentístico</p>
+      <p class="footer-copy">&copy; 2026 Benjamin Amaral &middot; Grupo Studio Dentístico</p>
     </div>
   </footer>
 
