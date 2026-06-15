@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Dentístico — Mentoria | Dr. Benjamin Amaral</title>
+  <meta name="description" content="Mentoria para dentistas que querem construir uma clínica de alto padrão com nome, método e identidade própria.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F7F4EE;
+      --text: #1a1a1a;
+      --gold: #B8960C;
+      --gold-hover: #9a7d0a;
+      --graphite: #2C2C2C;
+      --surface: #EDEAE2;
+      --dark: #13161f;
+      --dark-alt: #1a1a1a;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --nav-height: 72px;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Logo ── */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-img {
+      height: 42px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .logo-brand {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--graphite);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      border-left: 1px solid rgba(44, 44, 44, 0.15);
+      padding-left: 14px;
+    }
+
+    /* ── Buttons ── */
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .btn-whatsapp svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .btn-whatsapp--nav {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--graphite);
+      padding: 10px 18px;
+      font-size: 13px;
+    }
+
+    .btn-whatsapp--nav:hover {
+      background: var(--graphite);
+      color: var(--bg);
+    }
+
+    .btn-whatsapp--hero {
+      background: var(--graphite);
+      color: var(--bg);
+      padding: 16px 32px;
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .btn-whatsapp--hero:hover {
+      background: var(--text);
+    }
+
+    .btn-whatsapp--dark {
+      background: var(--gold);
+      color: var(--dark);
+      padding: 16px 36px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .btn-whatsapp--dark:hover {
+      background: var(--gold-hover);
+    }
+
+    .btn-arrow {
+      font-size: 16px;
+      transition: transform var(--transition);
+    }
+
+    .btn-whatsapp:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    .nav.scrolled {
+      background: rgba(247, 244, 238, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(44, 44, 44, 0.08);
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--graphite);
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-menu .btn-whatsapp--nav {
+      display: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--text);
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: currentColor;
+      margin: 5px 0;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: var(--nav-height);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(180px, 28vw, 380px);
+      color: var(--surface);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 80px 0 100px;
+    }
+
+    .hero-photo {
+      position: relative;
+      z-index: 1;
+      align-self: end;
+      padding-bottom: 40px;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      max-width: 420px;
+      margin-left: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-photo::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      right: 16px;
+      width: 55%;
+      height: 55%;
+      border: 1px solid var(--gold);
+      z-index: -1;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5.5vw, 58px);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 0;
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 28px 0;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(16px, 2vw, 18px);
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--graphite);
+      max-width: 560px;
+      margin-bottom: 36px;
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 48px;
+      color: var(--text);
+    }
+
+    /* ── Sobre ── */
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .sobre-text p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--graphite);
+      margin-bottom: 24px;
+    }
+
+    .sobre-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .sobre-highlight {
+      background: var(--surface);
+      padding: 48px 40px;
+      border-left: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      min-height: 280px;
+    }
+
+    .sobre-highlight p {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.5vw, 28px);
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    /* ── Para quem ── */
+    .para-quem {
+      background: var(--surface);
+    }
+
+    .qualificacao-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(44, 44, 44, 0.1);
+      border: 1px solid rgba(44, 44, 44, 0.1);
+    }
+
+    .qualificacao-item {
+      background: var(--bg);
+      padding: 36px 32px;
+      position: relative;
+    }
+
+    .qualificacao-item::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 32px;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .qualificacao-item p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--graphite);
+      padding-top: 16px;
+    }
+
+    .qualificacao-item:last-child {
+      grid-column: 1 / -1;
+      max-width: 50%;
+    }
+
+    /* ── Pilares ── */
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .pilar-card {
+      padding: 36px 0;
+      border-top: 1px solid rgba(44, 44, 44, 0.15);
+    }
+
+    .pilar-card h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .pilar-card p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--graphite);
+    }
+
+    /* ── Mentor ── */
+    .mentor-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .mentor-photo {
+      position: relative;
+    }
+
+    .mentor-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center 30%;
+      background: var(--surface);
+    }
+
+    .mentor-photo::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      width: 60%;
+      height: 60%;
+      border: 1px solid var(--gold);
+      z-index: -1;
+    }
+
+    .mentor-content .section-title {
+      margin-bottom: 32px;
+    }
+
+    .mentor-content p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--graphite);
+      margin-bottom: 20px;
+    }
+
+    .mentor-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── Depoimentos ── */
+    .depoimentos {
+      background: var(--surface);
+    }
+
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .depoimento-card {
+      background: var(--bg);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+    }
+
+    .depoimento-text {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+
+    .depoimento-text::before {
+      content: '\201C';
+      font-size: 32px;
+      color: var(--gold);
+      line-height: 0;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .depoimento-author {
+      border-top: 1px solid rgba(44, 44, 44, 0.12);
+      padding-top: 20px;
+    }
+
+    .depoimento-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .depoimento-meta {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--graphite);
+    }
+
+    .depoimento-brand {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 6px;
+    }
+
+    /* ── CTA Final ── */
+    .cta-final {
+      background: var(--dark);
+      padding: 100px 0;
+    }
+
+    .cta-final-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .cta-final-photo {
+      position: relative;
+    }
+
+    .cta-final-photo img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+
+    .cta-final-photo::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      width: 50%;
+      height: 50%;
+      border: 1px solid var(--gold);
+      z-index: -1;
+    }
+
+    .cta-final-content {
+      text-align: left;
+    }
+
+    .cta-final h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 600;
+      color: var(--bg);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .cta-final p {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(247, 244, 238, 0.7);
+      max-width: 520px;
+      margin: 0 0 40px;
+      line-height: 1.7;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--dark-alt);
+      padding: 48px 0;
+      border-top: 1px solid rgba(247, 244, 238, 0.06);
+    }
+
+    .footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer .logo-brand {
+      color: rgba(247, 244, 238, 0.5);
+      border-left-color: rgba(247, 244, 238, 0.12);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(247, 244, 238, 0.6);
+      letter-spacing: 0.02em;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(247, 244, 238, 0.35);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Mid CTA ── */
+    .mid-cta {
+      text-align: center;
+      padding: 60px 0 0;
+    }
+
+    .mid-cta .btn-whatsapp--hero {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--graphite);
+    }
+
+    .mid-cta .btn-whatsapp--hero:hover {
+      background: var(--graphite);
+      color: var(--bg);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .pilares-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mentor-grid {
+        grid-template-columns: 300px 1fr;
+        gap: 48px;
+      }
+
+      .qualificacao-item:last-child {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 72px 0;
+      }
+
+      .nav-links,
+      .nav-right .btn-whatsapp--nav {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: rgba(247, 244, 238, 0.97);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        transform: translateY(-110%);
+        opacity: 0;
+        transition: transform var(--transition), opacity var(--transition);
+        pointer-events: none;
+        border-bottom: 1px solid rgba(44, 44, 44, 0.08);
+      }
+
+      .nav-menu.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .nav-menu .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+      }
+
+      .nav-menu .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid rgba(44, 44, 44, 0.08);
+      }
+
+      .nav-menu .nav-links a {
+        display: block;
+        padding: 16px 0;
+        font-size: 15px;
+      }
+
+      .nav-menu .btn-whatsapp--nav {
+        display: inline-flex;
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-right {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-content {
+        padding: 32px 0 0;
+      }
+
+      .hero-photo {
+        padding-bottom: 48px;
+        max-width: 220px;
+        margin: 0 auto;
+        align-self: auto;
+      }
+
+      .hero-photo img {
+        margin: 0 auto;
+      }
+
+      .hero-photo::before {
+        right: auto;
+        left: -12px;
+      }
+
+      .hero-watermark {
+        font-size: 140px;
+        opacity: 0.5;
+      }
+
+      .cta-final-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .cta-final-photo {
+        max-width: 220px;
+        margin: 0 auto;
+      }
+
+      .cta-final-content {
+        text-align: center;
+      }
+
+      .cta-final p {
+        margin: 0 auto 40px;
+      }
+
+      .logo-img {
+        height: 36px;
+      }
+
+      .logo-brand {
+        font-size: 10px;
+        padding-left: 10px;
+      }
+
+      .sobre-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .sobre-highlight {
+        min-height: auto;
+        padding: 36px 28px;
+      }
+
+      .qualificacao-list {
+        grid-template-columns: 1fr;
+      }
+
+      .pilares-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .mentor-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .mentor-photo {
+        max-width: 320px;
+      }
+
+      .depoimentos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <div class="container">
+      <a href="#" class="logo" aria-label="Studio Dentístico — início">
+        <img src="assets/images/logo-studio.png" alt="Benjamin Amaral" class="logo-img" width="200" height="42">
+        <span class="logo-brand">Studio Dentístico</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="#mentoria">A mentoria</a></li>
+          <li><a href="#para-quem">Para quem</a></li>
+          <li><a href="#mentor">O mentor</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+        </ul>
+        <a href="https://wa.me/5512992186532" class="btn-whatsapp btn-whatsapp--nav" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+
+      <div class="nav-right">
+        <a href="https://wa.me/5512992186532" class="btn-whatsapp btn-whatsapp--nav" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-watermark" aria-hidden="true">BA</div>
+    <div class="container">
+      <div class="hero-content reveal">
+        <p class="hero-eyebrow">Mentoria Studio Dentístico</p>
+        <h1>A trajetória que levei anos construindo — agora vira o seu ponto de partida.</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">Uma mentoria para dentistas que querem construir uma clínica de alto padrão com nome, método e identidade própria.</p>
+        <a href="https://wa.me/5512992186532" class="btn-whatsapp btn-whatsapp--hero" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com a equipe no WhatsApp
+          <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+      <div class="hero-photo reveal">
+        <img src="assets/images/foto-benjamin.jpg" alt="Dr. Benjamin Amaral — retrato profissional" width="420" height="560">
+      </div>
+    </div>
+  </section>
+
+  <!-- O que é -->
+  <section id="mentoria">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">A mentoria</p>
+        <h2 class="section-title">O que é o Studio Dentístico</h2>
+      </div>
+      <div class="sobre-grid">
+        <div class="sobre-text reveal">
+          <p>O Studio Dentístico não é apenas um curso. É um método de construção de clínica — da identidade visual ao protocolo clínico, do posicionamento ao tipo de paciente que você vai atender.</p>
+          <p>Ao concluir, você terá autorização para usar o nome Studio Dentístico na sua clínica: <em>"Dra. Joana Lima | Studio Dentístico"</em>. Um selo que posiciona você dentro de um movimento nacional de excelência odontológica.</p>
+        </div>
+        <div class="sobre-highlight reveal">
+          <p>"Um dentista com clínica própria, identidade própria e pacientes certos."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quem -->
+  <section class="para-quem" id="para-quem">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Qualificação</p>
+        <h2 class="section-title">Esta mentoria é para você se...</h2>
+      </div>
+      <div class="qualificacao-list reveal">
+        <div class="qualificacao-item">
+          <p>Você é dentista formado e quer migrar para tratamentos de maior valor</p>
+        </div>
+        <div class="qualificacao-item">
+          <p>Trabalha muito e sente que seu nível técnico não está sendo reconhecido financeiramente</p>
+        </div>
+        <div class="qualificacao-item">
+          <p>Quer abrir ou reposicionar sua clínica com identidade e posicionamento premium</p>
+        </div>
+        <div class="qualificacao-item">
+          <p>Busca um mentor que já percorreu o caminho — não apenas teoria</p>
+        </div>
+        <div class="qualificacao-item">
+          <p>Quer construir algo com o seu nome, que dure décadas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilares -->
+  <section id="pilares">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Conteúdo</p>
+        <h2 class="section-title">O que você vai construir</h2>
+      </div>
+      <div class="pilares-grid">
+        <div class="pilar-card reveal">
+          <h3>Posicionamento &amp; Identidade</h3>
+          <p>Como construir uma marca pessoal que atrai o paciente certo</p>
+        </div>
+        <div class="pilar-card reveal">
+          <h3>Clínica de alta complexidade</h3>
+          <p>Protocolos de reabilitação oral com previsibilidade e menos retrabalho</p>
+        </div>
+        <div class="pilar-card reveal">
+          <h3>Gestão &amp; Precificação</h3>
+          <p>Estruturar agenda, precificar tratamentos de alto valor e crescer com qualidade</p>
+        </div>
+        <div class="pilar-card reveal">
+          <h3>Comunicação &amp; Autoridade</h3>
+          <p>Presença digital e conteúdo que converte confiança em tratamentos aceitos</p>
+        </div>
+        <div class="pilar-card reveal">
+          <h3>Trajetória &amp; Mentalidade</h3>
+          <p>Os erros que custam anos — e como evitá-los</p>
+        </div>
+        <div class="pilar-card reveal">
+          <h3>Selo Studio Dentístico</h3>
+          <p>Certificação que posiciona sua clínica dentro de uma rede de excelência nacional</p>
+        </div>
+      </div>
+      <div class="mid-cta reveal">
+        <a href="https://wa.me/5512992186532" class="btn-whatsapp btn-whatsapp--hero" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com a equipe no WhatsApp
+          <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentor -->
+  <section id="mentor">
+    <div class="container">
+      <div class="mentor-grid">
+        <div class="mentor-photo reveal">
+          <img src="assets/images/benjamin.jpg" alt="Dr. Benjamin Amaral em consulta clínica" width="380" height="285">
+        </div>
+        <div class="mentor-content reveal">
+          <p class="section-label">O mentor</p>
+          <h2 class="section-title">Dr. Benjamin Amaral</h2>
+          <p>Implantodontista com quase duas décadas de experiência clínica, especializado em reabilitações orais completas, multiespecialidade e de alta complexidade.</p>
+          <p>Sua atenção aos detalhes levou ao domínio das principais causas de falha em tratamentos convencionais — desenvolvendo protocolos mais efetivos, menos invasivos e com recuperação mais rápida.</p>
+          <p>Por meio da escultura manual, reconstrói a anatomia dental de forma individualizada — reduzindo desgastes e respeitando a função. Hoje compartilha esse método com dentistas que querem construir o mesmo nível de excelência.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section class="depoimentos" id="depoimentos">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Resultados</p>
+        <h2 class="section-title">Quem já passou por aqui</h2>
+      </div>
+      <div class="depoimentos-grid">
+        <div class="depoimento-card reveal">
+          <p class="depoimento-text">A mentoria mudou completamente minha visão sobre como posicionar a clínica. Hoje atendo um perfil de paciente que antes parecia inalcançável.</p>
+          <div class="depoimento-author">
+            <p class="depoimento-name">Dra. [Nome Placeholder]</p>
+            <p class="depoimento-meta">São Paulo, SP — Implantodontia</p>
+            <p class="depoimento-brand">| Studio Dentístico</p>
+          </div>
+        </div>
+        <div class="depoimento-card reveal">
+          <p class="depoimento-text">Não é teoria de palco. É método aplicado, com alguém que já construiu o que eu queria construir. O retorno foi imediato na forma como precifico e comunico.</p>
+          <div class="depoimento-author">
+            <p class="depoimento-name">Dr. [Nome Placeholder]</p>
+            <p class="depoimento-meta">Curitiba, PR — Reabilitação Oral</p>
+            <p class="depoimento-brand">| Studio Dentístico</p>
+          </div>
+        </div>
+        <div class="depoimento-card reveal">
+          <p class="depoimento-text">O selo Studio Dentístico trouxe uma credibilidade que nenhuma propaganda pagaria. Meus pacientes percebem a diferença antes mesmo de entrar no consultório.</p>
+          <div class="depoimento-author">
+            <p class="depoimento-name">Dra. [Nome Placeholder]</p>
+            <p class="depoimento-meta">Belo Horizonte, MG — Estética Avançada</p>
+            <p class="depoimento-brand">| Studio Dentístico</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-final" id="contato">
+    <div class="container">
+      <div class="cta-final-grid reveal">
+        <div class="cta-final-photo">
+          <img src="assets/images/procedimento.jpg" alt="Dr. Benjamin Amaral em procedimento clínico" width="280" height="373">
+        </div>
+        <div class="cta-final-content">
+          <h2>Pronto para construir o seu Studio Dentístico?</h2>
+          <p>Turmas com vagas limitadas. Converse com a nossa equipe e descubra se este é o momento certo para você.</p>
+          <a href="https://wa.me/5512992186532" class="btn-whatsapp btn-whatsapp--dark" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Falar no WhatsApp
+            <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <a href="#" class="logo" aria-label="Studio Dentístico — início">
+        <img src="assets/images/logo-studio.png" alt="Benjamin Amaral" class="logo-img" width="200" height="42">
+        <span class="logo-brand">Studio Dentístico</span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://wa.me/5512992186532" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a href="https://benjaminamaral.com.br" target="_blank" rel="noopener noreferrer">benjaminamaral.com.br</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Benjamin Amaral &middot; Studio Dentístico</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      /* Sticky nav blur */
+      var nav = document.getElementById('nav');
+      function onScroll() {
+        nav.classList.toggle('scrolled', window.scrollY > 20);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* Mobile menu */
+      var toggle = document.getElementById('navToggle');
+      var menu = document.getElementById('navMenu');
+
+      toggle.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        toggle.classList.toggle('active', open);
+        toggle.setAttribute('aria-expanded', open);
+        toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      });
+
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          menu.classList.remove('open');
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Abrir menu');
+        });
+      });
+
+      /* Reveal on scroll */
+      var reveals = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
